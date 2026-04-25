@@ -1,5 +1,5 @@
 from fastapi import FastAPI, UploadFile, File
-from import SessionLocal
+from database import SessionLocal
 from models import Document
 from pdf_loader import extract_pdf
 from crawler import crawl
