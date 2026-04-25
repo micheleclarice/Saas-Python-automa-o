@@ -1,0 +1,8 @@
+class Lead(Base):
+    __tablename__ = "leads"
+
+    id = Column(String, primary_key=True)
+    tenant_id = Column(String, index=True)  # 👈 ISOLAMENTO
+    phone = Column(String)
+    stage = Column(String)
+    score = Column(Integer)

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Sales AI</h1>
+
+    <input id="msg" placeholder="Mensagem">
+    <button onclick="send()">Enviar</button>
+
+    <pre id="res"></pre>
+
+    <script>
+        async function send() {
+            const msg = document.getElementById("msg").value;
+
+            const res = await fetch("https://YOUR-RENDER-URL/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: "123",
+                    message: msg
+                })
+            });
+
+            const data = await res.json();
+            document.getElementById("res").innerText = data.reply;
+        }
+    </script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sales Agent</title>
+</head>
+
+<body>
+    <h1>CRM Dashboard</h1>
+
+    <div>
+        <input id="msg" placeholder="Mensagem" />
+        <button onclick="send()">Enviar</button>
+    </div>
+
+    <h2>Resposta:</h2>
+    <pre id="reply"></pre>
+
+    <h2>Leads:</h2>
+    <ul id="leads"></ul>
+
+    <script>
+        async function send() {
+            const msg = document.getElementById("msg").value;
+
+            const res = await fetch("http://127.0.0.1:8000/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: "123",
+                    message: msg
+                })
+            });
+
+            const data = await res.json();
+            document.getElementById("reply").innerText = data.reply;
+
+            loadLeads();
+        }
+
+        async function loadLeads() {
+            const res = await fetch("http://127.0.0.1:8000/leads");
+            const data = await res.json();
+
+            const ul = document.getElementById("leads");
+            ul.innerHTML = "";
+
+            data.forEach(l => {
+                const li = document.createElement("li");
+                li.innerText = `${l.phone} | ${l.stage} | score:${l.score}`;
+                ul.appendChild(li);
+            });
+        }
+
+        loadLeads();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+function Dashboard() { const [metrics, setMetrics] = useState({}) const [leads, setLeads] = useState([]) useEffect(() => { fetch("/crm/metrics").then(r => r.json()).then(setMetrics) fetch("/leads").then(r => r.json()).then(setLeads) }, []) return (
+<div>
+    <h1>SaaS Dashboard</h1>
+
+    <div>
+        <h2>CRM</h2>
+        <p>Total: {metrics.total_leads}</p>
+        <p>Win rate: {metrics.win_rate}</p>
+    </div>
+
+    <div>
+        <h2>Leads</h2>
+        {leads.map(l => (
+        <div key={l.id}>
+            {l.phone} - {l.stage}
+        </div>
+        ))}
+    </div>
+</div>
+) }
