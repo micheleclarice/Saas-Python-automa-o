@@ -71,13 +71,4 @@ def upload_url(url: str):
     db.commit()
     db.close() 
 # ... (seu código onde cria o app) ...
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"], # Isso permite que qualquer site converse com sua API
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
     return {"ok": True}
