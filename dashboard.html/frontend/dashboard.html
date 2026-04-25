@@ -1,0 +1,18 @@
+<h1>CRM Dashboard</h1>
+
+<div id="metrics"></div>
+<div id="leads"></div>
+
+<script>
+    async function load() {
+        const m = await fetch("/crm/metrics").then(r => r.json());
+        document.getElementById("metrics").innerText =
+            "Leads: " + m.total_leads + " Win rate: " + m.win_rate;
+
+        const l = await fetch("/leads").then(r => r.json());
+        document.getElementById("leads").innerText =
+            JSON.stringify(l, null, 2);
+    }
+
+    load();
+</script>
