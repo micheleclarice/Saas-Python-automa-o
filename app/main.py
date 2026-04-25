@@ -1,4 +1,6 @@
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI
+from app.database import SessionLocal, engine  # Precisa ter o 'app.' antes
+from app import models                         # Precisa ter o 'app.' antesfrom fastapi import FastAPI, UploadFile, File
 from app.database import SessionLocal
 from app.models import Document
 from app.pdf_loader import extract_pdf
@@ -8,8 +10,8 @@ from app.embeddings import embed
 from app.rag import retrieve
 from app.agent import SalesAgent
 from fastapi.middleware.cors import CORSMiddleware
-from app import models
-from app.database import SessionLocal, engine
+
+
 
 
 
