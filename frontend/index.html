@@ -13,7 +13,7 @@
         async function send() {
             const msg = document.getElementById("msg").value;
 
-            const res = await fetch("https://YOUR-RENDER-URL/chat", {
+            const res = await fetch("https://saas-python-automa-o-xxxx.onrender.com/chat/leads", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -57,7 +57,7 @@
         async function send() {
             const msg = document.getElementById("msg").value;
 
-            const res = await fetch("http://127.0.0.1:8000/chat", {
+            const res = await fetch("https://saas-python-automa-o-xxxx.onrender.com/chat/leads", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -75,7 +75,7 @@
         }
 
         async function loadLeads() {
-            const res = await fetch("http://127.0.0.1:8000/leads");
+            const res = await fetch("https://saas-python-automa-o-xxxx.onrender.com/chat/leads");
             const data = await res.json();
 
             const ul = document.getElementById("leads");

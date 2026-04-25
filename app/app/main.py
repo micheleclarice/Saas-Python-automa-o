@@ -7,9 +7,19 @@ from chunking import chunk_text
 from embeddings import embed
 from rag import retrieve
 from agent import SalesAgent
+from fastapi.middleware.cors import CORSMiddleware
+
 
 app = FastAPI()
 agent = SalesAgent()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # O asterisco significa "aceitar de qualquer endereço"
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/chat")
@@ -59,6 +69,16 @@ def upload_url(url: str):
         ))
 
     db.commit()
-    db.close()
+    db.close()from fastapi.middleware.cors import CORSMiddleware
+
+# ... (seu código onde cria o app) ...
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Isso permite que qualquer site converse com sua API
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
     return {"ok": True}
