@@ -1,6 +1,6 @@
-from app.sqlalchemy import Column, String, Text
-from app.pgvector.sqlalchemy import Vector
-from app.database import Base
+from sqlalchemy import Column, String, Text
+from sqlalchemy import Vector
+from database import Base
 import uuid
 
 

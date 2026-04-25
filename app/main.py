@@ -1,14 +1,13 @@
 from fastapi import FastAPI
-from app.database import SessionLocal, engine  # Precisa ter o 'app.' antes
-from app import models                         # Precisa ter o 'app.' antesfrom fastapi import FastAPI, UploadFile, File
-from app.database import SessionLocal
-from app.models import Document
-from app.pdf_loader import extract_pdf
-from app.crawler import crawl
-from app.chunking import chunk_text
-from app.embeddings import embed
-from app.rag import retrieve
-from app.agent import SalesAgent
+from database import SessionLocal, engine  # Removido o 'app.'
+from models import Document                # Removido o 'app.'
+from database import SessionLocal, engine  # Precisa ter o 'app.' antes                    # Precisa ter o 'app.' antesfrom fastapi import FastAPI, UploadFile, File
+from pdf_loader import extract_pdf
+from crawler import crawl
+from chunking import chunk_text
+from embeddings import embed
+from rag import retrieve
+from agent import SalesAgent
 from fastapi.middleware.cors import CORSMiddleware
 
 
