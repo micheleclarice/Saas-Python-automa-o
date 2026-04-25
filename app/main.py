@@ -9,6 +9,8 @@ from app.rag import retrieve
 from app.agent import SalesAgent
 from fastapi.middleware.cors import CORSMiddleware
 from app import models
+from app.database import SessionLocal, engine
+
 
 
 app = FastAPI()
