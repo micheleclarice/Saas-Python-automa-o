@@ -69,8 +69,7 @@ def upload_url(url: str):
         ))
 
     db.commit()
-    db.close()from fastapi.middleware.cors import CORSMiddleware
-
+    db.close() 
 # ... (seu código onde cria o app) ...
 
 app.add_middleware(
