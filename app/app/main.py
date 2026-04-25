@@ -1,12 +1,12 @@
 from fastapi import FastAPI, UploadFile, File
-from app.app.database import SessionLocal
-from app.app.models import Document
-from app.app.pdf_loader import extract_pdf
-from app.app.crawler import crawl
-from app.app.chunking import chunk_text
-from app.app.embeddings import embed
-from app.app.rag import retrieve
-from app.app.agent import SalesAgent
+from import SessionLocal
+from models import Document
+from pdf_loader import extract_pdf
+from crawler import crawl
+from chunking import chunk_text
+from embeddings import embed
+from rag import retrieve
+from agent import SalesAgent
 from fastapi.middleware.cors import CORSMiddleware
 
 
